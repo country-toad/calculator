@@ -26,4 +26,5 @@ body {
 
 .display {
   border: 10px dotted blue;
+  width: 400px;
 }

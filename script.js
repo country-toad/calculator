@@ -33,9 +33,10 @@ function operate(operator, a, b) {
 
 let display = {
   value: 0,
+  operator: '',
   update: () => {
     const selectDisplay = document.querySelector('.display');
-    selectDisplay.textContent = display.value;
+    selectDisplay.textContent = display.value + display.operator;
   },
   append: input => {
     if(display.value === 0) {
@@ -44,18 +45,27 @@ let display = {
     else {
       display.value += input;
     }
-    display.update();
   },
   clear: () => {
     display.value = 0;
+    display.operate = '';
     display.update();
   },
 }
 
-const digits = document.querySelectorAll('.digits .digit');
+const digits = document.querySelectorAll('.digit');
 digits.forEach(digit => {
-  digit.addEventListener('click', function(e) {
+  digit.addEventListener('click', function() {
     display.append(this.textContent);
+    display.update();
+  });
+});
+
+const operators = document.querySelectorAll('.operator');
+operators.forEach(operator => {
+  operator.addEventListener('click', function() {
+    display.operator = this.textContent;
+    display.update();
   });
 });
 
