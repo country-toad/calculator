@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.calculator {
+  height: 800px;
+  width: 400px;
+  border: 5px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digits {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.digits button {
+  padding: 40px;
+  margin: 10px;
+}
