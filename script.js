@@ -31,26 +31,32 @@ function operate(operator, a, b) {
   }
 }
 
-let displayValue = 0;
-
-function updateDisplay() {
-  const display = document.querySelector('.display');
-  display.textContent = displayValue;
-};
-
-function appendValue(value) {
-    displayValue === '0' ? displayValue = value : displayValue += value;
+let display = {
+  value: 0,
+  update: () => {
+    const selectDisplay = document.querySelector('.display');
+    selectDisplay.textContent = display.value;
+  },
+  append: input => {
+    if(display.value === 0) {
+      display.value = input;
+    } 
+    else {
+      display.value += input;
+    }
+    display.update();
+  },
+  clear: () => {
+    display.value = 0;
+    display.update();
+  },
 }
 
 const digits = document.querySelectorAll('.digits .digit');
 digits.forEach(digit => {
   digit.addEventListener('click', function(e) {
-    appendValue(this.textContent);
-    updateDisplay();
+    display.append(this.textContent);
   });
 });
 
-function clearAll() {
-  displayValue = 0;
-  updateDisplay();
-}
+display.update();
