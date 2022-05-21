@@ -31,8 +31,26 @@ function operate(operator, a, b) {
   }
 }
 
+let displayValue = 0;
+
 function updateDisplay() {
-  const display = document.querySelector(".display");
-  display.textContent = evaluate;
+  const display = document.querySelector('.display');
+  display.textContent = displayValue;
 };
 
+function appendValue(value) {
+    displayValue === '0' ? displayValue = value : displayValue += value;
+}
+
+const digits = document.querySelectorAll('.digits .digit');
+digits.forEach(digit => {
+  digit.addEventListener('click', function(e) {
+    appendValue(this.textContent);
+    updateDisplay();
+  });
+});
+
+function clearAll() {
+  displayValue = 0;
+  updateDisplay();
+}
