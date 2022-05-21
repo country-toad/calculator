@@ -5,11 +5,12 @@ body {
 
 .calculator {
   height: 800px;
-  width: 400px;
+  width: 500px;
   border: 5px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-flow: column;
 }
 
 .digits {
@@ -21,4 +22,8 @@ body {
 .digits button {
   padding: 40px;
   margin: 10px;
+}
+
+.display {
+  border: 10px dotted blue;
 }

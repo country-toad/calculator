@@ -30,3 +30,9 @@ function operate(operator, a, b) {
       break;
   }
 }
+
+function updateDisplay() {
+  const display = document.querySelector(".display");
+  display.textContent = evaluate;
+};
+
