@@ -51,6 +51,7 @@ let display = {
     } 
     else if(display.isOperated) {
       display.value = input;
+      display.isOperated = false;
     }
     else {
       display.value += input;
