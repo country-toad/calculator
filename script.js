@@ -64,10 +64,10 @@ let display = {
     display.update();
   },
   equals: () => {
-    if(display.operator && display.value && display.value2) {
+    if(display.operator && display.value2) {
       const answer = operate(display.operator, display.value, display.value2);
       display.clear()
-      display.value = answer.toString();
+      display.value = answer;
       display.isOperated = true;
       display.update();
     }
