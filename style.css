@@ -25,6 +25,11 @@ body {
 }
 
 .display {
-  border: 10px dotted blue;
+  border: 10px solid blue;
+  width: 400px;
+}
+
+.displayprev {
+  border: 10px solid purple;
   width: 400px;
 }

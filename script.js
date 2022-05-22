@@ -79,6 +79,9 @@ digits.forEach(digit => {
 const operators = document.querySelectorAll('.operator');
 operators.forEach(operator => {
   operator.addEventListener('click', function() {
+    if(display.operator) {
+      display.equals();
+    }
     display.operator = this.textContent;
     display.update();
   });
