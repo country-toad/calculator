@@ -37,6 +37,7 @@ let display = {
   value: '0',
   value2: '',
   operator: '',
+  isOperated: false,
   update: () => {
     const selectDisplay = document.querySelector('.display');
     selectDisplay.textContent = display.value + display.operator + display.value2;
@@ -48,6 +49,9 @@ let display = {
     else if(display.value === '0') {
       display.value = input;
     } 
+    else if(display.isOperated) {
+      display.value = input;
+    }
     else {
       display.value += input;
     }
@@ -60,9 +64,10 @@ let display = {
   },
   equals: () => {
     if(display.operator && display.value && display.value2) {
-      const operatedValue = operate(display.operator, display.value, display.value2);
+      const answer = operate(display.operator, display.value, display.value2);
       display.clear()
-      display.value = operatedValue;
+      display.value = answer;
+      display.isOperated = true;
       display.update();
     }
   },
