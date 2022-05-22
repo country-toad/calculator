@@ -15,6 +15,8 @@ function divide(a, b) {
 }
 
 function operate(operator, a, b) {
+  a = parseInt(a);
+  b = parseInt(b);
   switch(operator) {
     case '+':
       return add(a, b);
@@ -32,7 +34,7 @@ function operate(operator, a, b) {
 }
 
 let display = {
-  value: 0,
+  value: '0',
   value2: '',
   operator: '',
   update: () => {
@@ -43,7 +45,7 @@ let display = {
     if(display.operator) {
       display.value2 += input;
     }
-    else if(display.value === 0) {
+    else if(display.value === '0') {
       display.value = input;
     } 
     else {
@@ -51,9 +53,15 @@ let display = {
     }
   },
   clear: () => {
-    display.value = 0;
+    display.value = '0';
     display.value2 = '';
     display.operator = '';
+    display.update();
+  },
+  equals: () => {
+    const operatedValue = operate(display.operator, display.value, display.value2);
+    display.clear()
+    display.value = operatedValue;
     display.update();
   },
 }
