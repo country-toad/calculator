@@ -33,13 +33,17 @@ function operate(operator, a, b) {
 
 let display = {
   value: 0,
+  value2: '',
   operator: '',
   update: () => {
     const selectDisplay = document.querySelector('.display');
-    selectDisplay.textContent = display.value + display.operator;
+    selectDisplay.textContent = display.value + display.operator + display.value2;
   },
   append: input => {
-    if(display.value === 0) {
+    if(display.operator) {
+      display.value2 += input;
+    }
+    else if(display.value === 0) {
       display.value = input;
     } 
     else {
@@ -48,7 +52,8 @@ let display = {
   },
   clear: () => {
     display.value = 0;
-    display.operate = '';
+    display.value2 = '';
+    display.operator = '';
     display.update();
   },
 }
