@@ -22,9 +22,11 @@ body {
 .digits button {
   padding: 40px;
   margin: 10px;
+  font-size: 20px;
 }
 
 .display {
   border: 10px solid blue;
   width: 400px;
+  font-size: 32px;
 }
