@@ -66,7 +66,7 @@ let display = {
     if(display.operator && display.value && display.value2) {
       const answer = operate(display.operator, display.value, display.value2);
       display.clear()
-      display.value = answer;
+      display.value = answer.toString();
       display.isOperated = true;
       display.update();
     }
