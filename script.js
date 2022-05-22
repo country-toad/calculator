@@ -59,10 +59,12 @@ let display = {
     display.update();
   },
   equals: () => {
-    const operatedValue = operate(display.operator, display.value, display.value2);
-    display.clear()
-    display.value = operatedValue;
-    display.update();
+    if(display.operator && display.value && display.value2) {
+      const operatedValue = operate(display.operator, display.value, display.value2);
+      display.clear()
+      display.value = operatedValue;
+      display.update();
+    }
   },
 }
 
