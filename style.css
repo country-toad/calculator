@@ -14,8 +14,7 @@ body {
 .digits {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  margin:
+  justify-content: end;
 }
 
 .digits button {
@@ -32,10 +31,24 @@ body {
   display: flex;
   justify-content: right;
   font-size: 30px;
+  padding: 10px;
 }
 
 .display,
 .digits {
   width: 90%;
   box-sizing: border-box;
+  margin-top: 20px;
+}
+
+.operator {
+  background: lightgray;
+}
+
+.equals {
+  background: lightblue;
+}
+
+.clear {
+  background: lightcoral;
 }
