@@ -57,6 +57,14 @@ let display = {
       display.value += input;
     }
   },
+  appendDecimal: input => {
+    if(display.operator && !display.value2.includes('.')) {
+      display.value2 += input;
+    }
+    else if(!display.operator && !display.value.includes('.')) {
+      display.value += input;
+    }
+  },
   clear: () => {
     display.value = '0';
     display.value2 = '';
@@ -98,5 +106,11 @@ operators.forEach(operator => {
     display.update();
   });
 });
+
+const decimal = document.querySelector('.decimal');
+decimal.addEventListener('click', function() {
+  display.appendDecimal('.');
+  display.update();
+})
 
 display.update();
