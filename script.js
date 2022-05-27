@@ -144,6 +144,20 @@ window.addEventListener('keydown', (e) => {
     display.operator = button.textContent;
     display.update();
   }
+  if(button.classList.contains('equals')) {
+    display.equals();
+  }
+  if(button.classList.contains('backspace')) {
+    display.backspace();
+  }
+  if(button.classList.contains('decimal')) {
+    display.appendDecimal('.');
+    display.update();
+  }
+  if(button.classList.contains('clear')) {
+    display.clear();
+  }
+  
 
 })
 
