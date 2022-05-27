@@ -137,6 +137,13 @@ window.addEventListener('keydown', (e) => {
     display.append(button.textContent);
     display.update();
   }
+  if(button.classList.contains('operator')) {
+    if(display.operator) {
+      display.equals();
+    }
+    display.operator = button.textContent;
+    display.update();
+  }
 
 })
 
