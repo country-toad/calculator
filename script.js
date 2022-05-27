@@ -86,6 +86,24 @@ let display = {
       display.update();
     }
   },
+  backspace: () => {
+    if(display.isOperated) {
+      display.clear();
+    }
+    else if(display.value2) {
+      display.value2 = display.value2.slice(0, -1);
+    } 
+    else if (display.operator) {
+      display.operator = '';
+    }
+    else if (display.value) {
+      display.value = display.value.slice(0, -1);
+    }
+    if (!display.value) {
+      display.value = '0';
+    }
+    display.update();
+  }
 }
 
 const digits = document.querySelectorAll('.digit');
