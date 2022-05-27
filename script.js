@@ -56,6 +56,7 @@ let display = {
     else {
       display.value += input;
     }
+    display.update();
   },
   appendDecimal: input => {
     if(display.operator && !display.value2.includes('.')) {
@@ -64,6 +65,7 @@ let display = {
     else if(!display.operator && !display.value.includes('.')) {
       display.value += input;
     }
+    display.update();
   },
   clear: () => {
     display.value = '0';
@@ -110,7 +112,6 @@ const digits = document.querySelectorAll('.digit');
 digits.forEach(digit => {
   digit.addEventListener('click', function() {
     display.append(this.textContent);
-    display.update();
   });
 });
 
@@ -135,7 +136,6 @@ window.addEventListener('keydown', (e) => {
   const button = document.querySelector(`button[data-key="${e.key}"]`);
   if(button.classList.contains('digit')) {
     display.append(button.textContent);
-    display.update();
   }
   if(button.classList.contains('operator')) {
     if(display.operator) {
@@ -152,13 +152,10 @@ window.addEventListener('keydown', (e) => {
   }
   if(button.classList.contains('decimal')) {
     display.appendDecimal('.');
-    display.update();
   }
   if(button.classList.contains('clear')) {
     display.clear();
   }
-  
-
 })
 
 display.update();
