@@ -131,4 +131,13 @@ decimal.addEventListener('click', function() {
   display.update();
 })
 
+window.addEventListener('keydown', (e) => { 
+  const button = document.querySelector(`button[data-key="${e.key}"]`);
+  if(button.classList.contains('digit')) {
+    display.append(button.textContent);
+    display.update();
+  }
+
+})
+
 display.update();
